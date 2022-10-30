@@ -5,11 +5,13 @@ string wejscie = Console.ReadLine();
 int[] dane = Array.ConvertAll<string, int>(wejscie.Split(" "), int.Parse);
 int daneZero = dane[0];
 int daneJeden = dane[1];
-if (dane[0] == dane[1] || daneZero+1 == daneJeden|| daneJeden+1 == daneZero)
+int daneMod = dane[2];
+if (dane[0] == dane[1] || daneZero+1 == daneJeden|| daneJeden+1 == daneZero || daneZero < daneMod||daneJeden < daneMod)
 {
     Console.WriteLine("empty");
     
 }
+
 else
 {
     if (dane[1] - dane[0] <= 11&& dane[0] - dane[1] <= 11)
@@ -20,31 +22,33 @@ else
         { 
             while (dane[0] < dane[1])
             {
-                
-                if (dane[0] + 2 == dane[1])
-                {
-                     Console.WriteLine($"{dane[0]+1}");
-                     break;
-                }
-                else {    
                     dane[0]++;
-                  Console.Write($"{dane[0]}, ");
-                }
+                    if (dane[0] % dane[2] == 0)
+                    {
+                        if (dane[0] + dane[2] == dane[1])
+                        {
+                           Console.Write($"{dane[0]}");
+                           break;
+                        
+                        }
+                        Console.Write($"{dane[0]}, ");
+                    }
+
+                
             }
         }   
         else if (dane[1] < dane[0])
         {
             while (dane[1] < dane[0])
             {
-                
-                if (dane[1] + 2 == dane[0])
+                dane[1]++;
+                if (dane[1] % dane[2] == 0)
                 {
-                     Console.WriteLine($"{dane[1]+1}");
-                     break;
-                }
-                else
-                {
-                    dane[1]++;
+                    if (dane[1] + dane[2] == dane[0])
+                    {
+                        Console.Write($"{dane[1]}");
+                        break;
+                    }
                     Console.Write($"{dane[1]}, ");
                 }   
             }
@@ -76,8 +80,8 @@ else
         {
             Console.Write("..., ");
             Console.WriteLine($"{dane[0]-2}, {dane[0]-1}");
+           }
         }
-    }
     
 
 }
