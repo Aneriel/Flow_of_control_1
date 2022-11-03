@@ -1,4 +1,5 @@
 ﻿using System.Reflection.Metadata;
+using System.Collections.Generic;
 
 string wejscie = Console.ReadLine();
 int[] dane = Array.ConvertAll<string, int>(wejscie.Split(" "), int.Parse);
@@ -13,7 +14,6 @@ if (dane[0] < dane[1]) {
         if (dane[0] % dane[2] == 0)
         {
             moduloList.Add(dane[0]);
-          //  Console.Write($"{dane[0]}, ");
         }
    
     }
@@ -25,15 +25,11 @@ else if(dane[0] > dane[1]){
         if (dane[1] % dane[2] == 0)
         {
             moduloList.Add(dane[1]);
-          //  Console.Write($"{dane[1]}, ");
         }
    
     }
 }
-else
-{
-    Console.WriteLine("empty");
-}
+
 int moduloCount = moduloList.Count;
  
 if (moduloCount==0)
@@ -44,6 +40,7 @@ if (moduloCount==0)
 
 else
 {
+    
     if (moduloCount <= 10) { 
     for(int i = 0; i< moduloCount; i++)
     {
@@ -58,7 +55,12 @@ else
     }
     else
     {
-
+        for(int i = 0; i < 3; i++) { 
+            Console.Write($"{moduloList[i]}, ");
+        }
+        Console.Write("..., ");
+        Console.Write($"{moduloList[moduloCount-2]}, ");
+        Console.Write(moduloList[moduloCount-1]);
     }
 }
 
