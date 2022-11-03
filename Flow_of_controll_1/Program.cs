@@ -6,14 +6,109 @@ int[] dane = Array.ConvertAll<string, int>(wejscie.Split(" "), int.Parse);
 int daneZero = dane[0];
 int daneJeden = dane[1];
 int daneMod = dane[2];
-if (dane[0] == dane[1] || daneZero+1 == daneJeden|| daneJeden+1 == daneZero || daneZero < daneMod||daneJeden < daneMod)
+List<int> moduloList = new List<int>();
+if (dane[0] < dane[1]) { 
+    while (dane[0] < dane[1]-1)
+    {
+        dane[0]++;
+        if (dane[0] % dane[2] == 0)
+        {
+            moduloList.Add(dane[0]);
+            Console.Write($"{dane[0]}, ");
+        }
+   
+    }
+}
+else if(dane[0] > dane[1]){
+       while (dane[1] < dane[0]-1)
+        {
+        dane[1]++;
+        if (dane[1] % dane[2] == 0)
+        {
+            moduloList.Add(dane[1]);
+            Console.Write($"{dane[1]}, ");
+        }
+   
+    }
+}
+else
+{
+    Console.WriteLine("empty");
+}
+int moduloCount = moduloList.Count;
+ 
+if (moduloCount==0)
 {
     Console.WriteLine("empty");
     
 }
 
 else
-{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*{
     if (dane[1] - dane[0] <= 11&& dane[0] - dane[1] <= 11)
     {
 
@@ -84,7 +179,7 @@ else
         }
     
 
-}
+}*/
 #if DEBUG
     Console.WriteLine("Press enter to close...");
     Console.ReadLine();
