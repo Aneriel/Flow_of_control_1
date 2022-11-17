@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 string wejscie = Console.ReadLine();
 int[] dane = Array.ConvertAll<string, int>(wejscie.Split(" "), int.Parse);
-int daneZero = dane[0];
-int daneJeden = dane[1];
-int daneMod = dane[2];
+
 List <int> moduloList = new List<int>();
 if (dane[0] < dane[1]) { 
     while (dane[0] < dane[1]-1)
